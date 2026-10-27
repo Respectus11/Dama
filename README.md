@@ -1,93 +1,86 @@
-# Dama Game
+# Dama — Digital Board Game
 
-Digital Dama board game with real-time multiplayer functionality.
+Dama is a TypeScript workspace for developing a browser-based board game, with shared game-state types intended for a React frontend and a Node.js backend.
 
-## 🎮 Features
+> **Project status:** Work in progress. The current repository contains workspace configuration, package manifests, and shared TypeScript contracts. Frontend screens and backend entry points are not yet present, so the project is not currently a playable game.
 
-- **Interactive Board UI**: Beautiful, responsive game board with drag-and-drop functionality
-- **Real-time Multiplayer**: WebSocket-based communication for seamless multiplayer experience
-- **Guest Mode**: Play without registration for instant access
-- **Local & Online Play**: Support for both local WiFi and online multiplayer
-- **Game Modes**: Local multiplayer, online multiplayer, and AI opponent
-- **Modern Tech Stack**: React, Node.js, TypeScript, MongoDB, Socket.IO
+## Project direction
 
-## 🚀 Quick Start
+The shared contracts describe the building blocks for a Dama game:
+
+- Board state, pieces, positions, players, and game sessions
+- Moves, move results, winners, and match results
+- Socket event types for joining games, sending moves, chat, and game updates
+- Game modes for local play, online play, and an AI opponent
+
+These are type definitions and intended interfaces, not a claim that the corresponding game flows are already implemented.
+
+## Technology
+
+| Area | Technologies in the workspace |
+| --- | --- |
+| Frontend | React 18, TypeScript, Socket.IO client |
+| Backend | Node.js, Express, TypeScript, Socket.IO |
+| Data layer | MongoDB, Mongoose |
+| Shared contracts | TypeScript |
+| Developer tooling | npm workspaces, ESLint, Prettier |
+
+## Repository structure
+
+```text
+Dama/
+├── backend/
+│   ├── package.json
+│   └── tsconfig.json
+├── frontend/
+│   ├── package.json
+│   └── tsconfig.json
+├── shared/
+│   ├── package.json
+│   └── src/
+│       └── types.ts
+├── package.json
+└── tsconfig.json
+```
+
+## Getting started
 
 ### Prerequisites
 
-- Node.js (>=16.0.0)
-- npm (>=8.0.0)
+- Node.js 16 or later
+- npm 8 or later
 
-### Installation
+### Install dependencies
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm run install:all
-   ```
+```bash
+git clone https://github.com/Respectus11/Dama.git
+cd Dama
+npm install
+```
 
-### Development
+### Development status
 
-Start both frontend and backend development servers:
+The root package defines scripts for development, building, linting, formatting, and testing:
+
 ```bash
 npm run dev
-```
-
-### Build
-
-Build both frontend and backend:
-```bash
 npm run build
+npm run lint
+npm run format
+npm test
 ```
 
-## 📁 Project Structure
+These commands are configured for the intended workspace, but the application entry points and test suite need to be added before the full development and build workflows can run successfully.
 
-```
-dama/
-├── packages/
-│   ├── frontend/          # React + TypeScript frontend
-│   ├── backend/           # Node.js + Express backend
-│   └── shared/            # Shared types and utilities
-├── tsconfig.json          # Root TypeScript configuration
-└── README.md              # This file
-```
+## Next implementation steps
 
-## 🛠️ Technologies
+1. Implement the game rules and validate legal moves, captures, and win conditions.
+2. Build the React board and player interaction flow.
+3. Add backend routes and Socket.IO handlers for game sessions.
+4. Connect persistence and authentication where required.
+5. Add tests for move validation, game state transitions, and multiplayer events.
+6. Document environment variables and deployment once the services are implemented.
 
-### Frontend
-- React 18 + TypeScript
-- Socket.IO Client
-- Framer Motion for animations
-- @dnd-kit for drag-and-drop
-- Tailwind CSS for styling
+## License
 
-### Backend
-- Node.js + Express + TypeScript
-- Socket.IO Server
-- MongoDB + Mongoose
-- JWT for authentication
-
-### Development
-- TypeScript for type safety
-- ESLint + Prettier for code quality
-- Concurrently for running multiple servers
-
-## 🎯 Game Features
-
-- **Guest Mode**: Play as a guest without registration
-- **Real-time Communication**: WebSocket-based multiplayer
-- **Drag & Drop**: Intuitive piece movement
-- **Multiple Game Modes**: Local, online, and AI
-- **Responsive Design**: Works on desktop and mobile
-
-## 📝 License
-
-MIT License - see LICENSE file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-MIT
+No license file is currently included. Add a license before distributing or accepting external contributions.
